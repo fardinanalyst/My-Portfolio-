@@ -82,3 +82,36 @@ function toggleMenu() {
     document.getElementById("navbar").classList.toggle("active");
 }
 
+// project modals 
+function openModal(id) {
+    document.getElementById(id).style.display = "block";
+}
+function closeModal(id) {
+    document.getElementById(id).style.display = "none";
+}
+window.onclick = function (event) {
+    const modal1 = document.getElementById('spotifyModal');
+    if (event.target === modal1) {
+        modal1.style.display = "none";
+    }
+    const modal2 = document.getElementById('commerceModal');
+    if (event.target === modal2) {
+        modal2.style.display = "none";
+    }
+    const modal3 = document.getElementById('discountModal');
+    if (event.target === modal3) {
+        modal3.style.display = "none";
+    }
+    const modal4 = document.getElementById('nykaaModal');
+    if (event.target === modal4) {
+        modal4.style.display = "none";
+    }
+    const modal5 = document.getElementById('healthcareModal');
+    if (event.target === modal5) {
+        modal5.style.display = "none";
+    }
+    const modal6 = document.getElementById('rfmModal');
+    if (event.target === modal6) {
+        modal6.style.display = "none";
+    }
+}

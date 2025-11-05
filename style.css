@@ -538,7 +538,7 @@
     }
 
     .about-description {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         font-family: Arial, Helvetica, sans-serif;
         color: var(--text-secondary);
         margin-bottom: 40px;
@@ -626,20 +626,55 @@
         background: transparent;
         color: var(--accent-green);
         border: 2px solid var(--accent-green);
-        padding: 15px 40px;
-        border-radius: 30px;
+        padding: 15px 48px;
+        /* slightly larger padding */
+        border-radius: 35px;
         margin-top: 40px;
-        font-size: 1rem;
-        font-weight: 600;
+        font-size: 1.1rem;
+        /* bigger, cleaner text */
+        font-weight: 700;
         cursor: pointer;
-        transition: all 0.3s ease;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 1.5px;
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+        transition: all 0.4s ease;
+        /* smoother hover transition */
     }
 
     .my-story-btn:hover {
         background: var(--accent-green);
         color: var(--primary-bg);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+        /* slight grow effect */
+    }
+
+    /* ✅ Optional: Center or align button */
+    .button-wrapper {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+    }
+
+    /* Optional: Add a smooth fade-in when it loads */
+    .my-story-btn {
+        opacity: 0;
+        animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .about-right {
@@ -1842,8 +1877,8 @@
     /* Grid Layout */
     .skills-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 40px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 20px;
         margin-top: 40px;
     }
 
@@ -1933,9 +1968,14 @@
     /* Education section */
     .education-section {
         background: var(--primary-bg);
-        /* padding: 60px 20px; */
         max-width: 800px;
         margin: 0 auto;
+        /* ✅ centers the entire section */
+        padding: 0px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* ✅ centers the card horizontally */
     }
 
     .section-title {
@@ -1957,22 +1997,27 @@
         border-radius: 2px;
     }
 
+    /* ✅ Centers the card with improved look */
     .education-card {
         background: var(--light-bg);
         border: 1px solid var(--border-color);
-        border-radius: 10px;
+        border-radius: 12px;
         padding: 30px 25px;
-        box-shadow: 0 4px 10px var(--shadow-color);
-        transition: transform 0.3s ease;
+        box-shadow: 0 4px 12px var(--shadow-color);
+        transition: all 0.3s ease;
         display: flex;
-        /* flex layout */
         justify-content: space-between;
-        /* left & right */
         align-items: center;
+        width: 100%;
+        max-width: 600px;
+        /* ✅ keeps card centered and tidy */
+        margin: 0 auto;
+        /* ✅ centers card */
     }
 
     .education-card:hover {
-        transform: translateY(-5px);
+        transform: translateY(-6px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
     }
 
     .edu-info {
@@ -2000,10 +2045,26 @@
         white-space: nowrap;
     }
 
+    @media (max-width: 600px) {
+        .education-card {
+            flex-direction: column;
+            text-align: center;
+            gap: 12px;
+        }
+
+        .edu-info {
+            text-align: center;
+        }
+
+        .year {
+            align-self: center;
+        }
+    }
+
     /* Experience section */
     .experience {
         max-width: 1200px;
-        margin: 50px auto;
+        margin: 40px auto;
         padding: 20px;
     }
 
@@ -2367,6 +2428,10 @@
         color: var(--text-primary);
     }
 
+    .project-p {
+        font-size: 20px;
+    }
+
     .projects-description {
         font-size: 1.2rem;
         color: var(--text-secondary);
@@ -2377,8 +2442,8 @@
 
     .projects-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
         margin-top: 60px;
     }
 
@@ -2390,6 +2455,7 @@
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         position: relative;
+        cursor: pointer;
     }
 
     .project-card:hover {
@@ -2487,6 +2553,18 @@
         background: var(--accent-green);
         color: var(--primary-bg);
         transform: translateY(-2px);
+    }
+
+    /* data projects */
+    .data-projects {
+        margin: 50px auto;
+    }
+
+    .data-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 60px;
     }
 
     /* Dashboards Section */
@@ -2958,7 +3036,7 @@
         }
 
         .skills-grid {
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 25px;
         }
 
@@ -2968,8 +3046,13 @@
         }
 
         .projects-grid {
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 25px;
+        }
+
+        .data-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
         .contact {
@@ -3008,6 +3091,21 @@
 
         .nav a {
             font-size: 14px;
+        }
+
+        .skills-grid {
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .projects-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .data-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
         .hero,
@@ -3214,4 +3312,127 @@
         .footer-social-icons {
             justify-content: center;
         }
+    }
+
+    /* projects model */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding-top: 60px;
+    }
+
+    /* Modal Box */
+    .modal-content {
+        background-color: #fff;
+        margin: auto;
+        padding: 30px;
+        border-radius: 15px;
+        width: 90%;
+        max-width: 850px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        animation: fadeIn 0.4s ease-in-out;
+    }
+
+    /* Close Button */
+    .close {
+        color: #333;
+        float: right;
+        font-size: 43px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .close:hover {
+        color: #ff3b3b;
+    }
+
+    /* Headings */
+    .modal-content h2 {
+        color: var(--accent-green);
+        margin-bottom: 10px;
+    }
+
+    .modal-content h3 {
+        margin-top: 25px;
+        color: #333;
+    }
+
+    /* ===== Responsive Table Container ===== */
+    .table-container {
+        width: 100%;
+        overflow-x: auto;
+        /* Enables horizontal scroll */
+        -webkit-overflow-scrolling: touch;
+        /* Smooth scrolling for iOS */
+        margin-top: 15px;
+        border-radius: 8px;
+    }
+
+    /* ===== Table Styling ===== */
+    .results-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 15px;
+        min-width: 600px;
+        /* Prevent table from squishing too much on small screens */
+    }
+
+    .results-table th,
+    .results-table td {
+        border: 1px solid #ddd;
+        padding: 10px 12px;
+        text-align: center;
+        white-space: nowrap;
+        /* Prevent text wrapping */
+    }
+
+    .results-table th {
+        background-color: var(--accent-green, #1db954);
+        /* fallback to green if variable missing */
+        color: #fff;
+    }
+
+    .results-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    /* ===== Optional: Mobile Scroll Hint ===== */
+    .table-container::after {
+        content: "→ Scroll to view more";
+        display: block;
+        text-align: right;
+        font-size: 12px;
+        color: #666;
+        margin-top: 5px;
+        margin-right: 4px;
+    }
+
+    /* Fade Animation */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Scroll behavior */
+    .modal::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .modal::-webkit-scrollbar-thumb {
+        background-color: var(--accent-green);
+        border-radius: 10px;
     }
